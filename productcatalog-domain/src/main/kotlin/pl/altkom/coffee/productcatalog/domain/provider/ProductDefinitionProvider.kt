@@ -1,4 +1,4 @@
-package pl.altkom.coffee.productcatalog.domain.query
+package pl.altkom.coffee.productcatalog.domain.provider
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -10,7 +10,7 @@ import kotlin.streams.toList
 
 @Transactional(readOnly = true)
 @Service
-class ProductDefinitionQuery(val productDefinitionRepository: ProductDefinitionRepository) {
+class ProductDefinitionProvider(val productDefinitionRepository: ProductDefinitionRepository) {
 
     fun findAllActiveProduct(): List<ProductDefinitionDto> {
         return productDefinitionRepository.findAllActiveProduct().stream().map {

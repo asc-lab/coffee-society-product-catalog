@@ -4,19 +4,19 @@ import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
 import pl.altkom.coffee.productcatalog.api.dto.ProductDefinitionDto
-import pl.altkom.coffee.productcatalog.domain.query.ProductDefinitionQuery
+import pl.altkom.coffee.productcatalog.domain.provider.ProductDefinitionProvider
 import pl.altkom.coffee.productcatalog.domain.service.ProductDefinitionService
 
 @RestController
 @RequestMapping("/api")
 class ProductDefinitionController(
         private val productDefinitionService: ProductDefinitionService,
-        private val productDefinitionQuery: ProductDefinitionQuery) {
+        private val productDefinitionProvider: ProductDefinitionProvider) {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/definitions")
     fun getActiveProductVersion(): ResponseEntity<List<ProductDefinitionDto>> {
-        return ResponseEntity.ok().body(productDefinitionQuery.findAllActiveProduct())
+        return ResponseEntity.ok().body(productDefinitionProvider.findAllActiveProduct())
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
