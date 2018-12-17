@@ -1,21 +1,21 @@
 package pl.altkom.coffee.productcatalog.domain.model
 
 import org.springframework.data.annotation.Id
+import java.math.BigDecimal
 
-class ProductDefinition {
+class ProductDefinition(
+        val name: String,
+        val resources: List<ProductResource>,
+        val version: Long,
+        val tax: BigDecimal
+) {
     @Id
     var id: String? = null
-    val name: String
-    val resources: List<ProductResource>
-    val version: Long
     var active: Boolean
         private set
 
 
-    constructor(name: String, resources: List<ProductResource>, version: Long) {
-        this.name = name
-        this.resources = resources
-        this.version = version
+    init {
         this.active = true
     }
 
@@ -24,15 +24,16 @@ class ProductDefinition {
     }
 
     companion object {
-        fun createNewProduct(name: String,
-                             resources: List<ProductResource>): ProductDefinition {
-            return ProductDefinition(name, resources, 0)
+        fun createNewProduct(
+                name: String,
+                resources: List<ProductResource>,
+                tax: BigDecimal
+        ): ProductDefinition {
+            return ProductDefinition(name, resources, 0, tax)
         }
 
-        fun createNewProductVersion(formerVersion: ProductDefinition, resources: List<ProductResource>): ProductDefinition {
-            return ProductDefinition(formerVersion.name, resources, formerVersion.version.inc())
+        fun createNewProductVersion(formerVersion: ProductDefinition, resources: List<ProductResource>, tax: BigDecimal): ProductDefinition {
+            return ProductDefinition(formerVersion.name, resources, formerVersion.version.inc(), tax)
         }
-
     }
-
 }

@@ -14,7 +14,7 @@ class ProductDefinitionProvider(val productDefinitionRepository: ProductDefiniti
 
     fun findAllActiveProduct(): List<ProductDefinitionDto> {
         return productDefinitionRepository.findAllActiveProduct().stream().map {
-            ProductDefinitionDto(it.id!!, it.name, mapProductResource(it))
+            ProductDefinitionDto(it.id!!, it.name, mapProductResource(it), it.tax)
         }.toList()
     }
 

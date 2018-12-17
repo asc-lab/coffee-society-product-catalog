@@ -14,12 +14,12 @@ class ProductDefinitionService(
         private val productRepository: ProductDefinitionRepository) {
 
     fun defineNewProduct(dto: ProductDefinitionDto) {
-        productRepository.save(ProductDefinition.createNewProduct(dto.name, mapProductDefinition(dto)))
+        productRepository.save(ProductDefinition.createNewProduct(dto.name, mapProductDefinition(dto), dto.tax))
     }
 
     fun defineNewProductVersion(dto: ProductDefinitionDto) {
         productRepository.findById(dto.id).ifPresent {
-            val productDefinition = ProductDefinition.createNewProductVersion(it, mapProductDefinition(dto))
+            val productDefinition = ProductDefinition.createNewProductVersion(it, mapProductDefinition(dto), dto.tax)
             it.deactivate()
 
             productRepository.save(productDefinition)
