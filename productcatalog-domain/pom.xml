@@ -15,11 +15,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>pl.altkom.coffee.members</groupId>
-            <artifactId>members-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>pl.altkom.coffee.productcatalog</groupId>
             <artifactId>productcatalog-api</artifactId>
             <version>${project.parent.version}</version>
