@@ -13,7 +13,7 @@ class ProductDefinitionController(
         private val productDefinitionService: ProductDefinitionService,
         private val productDefinitionProvider: ProductDefinitionProvider) {
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/definitions")
     fun getActiveProductVersion(): ResponseEntity<List<ProductDefinitionDto>> {
         return ResponseEntity.ok().body(productDefinitionProvider.findAllActiveProduct())
