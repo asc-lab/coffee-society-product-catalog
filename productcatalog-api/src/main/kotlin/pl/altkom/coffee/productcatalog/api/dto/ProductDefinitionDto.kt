@@ -1,5 +1,6 @@
 package pl.altkom.coffee.productcatalog.api.dto
 
+import java.io.Serializable
 import java.math.BigDecimal
 
 data class ProductDefinitionDto(
@@ -7,4 +8,4 @@ data class ProductDefinitionDto(
         val name: String,
         val resources: List<ProductResourceDto>,
         val tax: BigDecimal
-)
+) : Serializable

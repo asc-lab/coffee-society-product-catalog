@@ -14,7 +14,6 @@ class ProductDefinition(
     var active: Boolean
         private set
 
-
     init {
         this.active = true
     }
@@ -32,7 +31,11 @@ class ProductDefinition(
             return ProductDefinition(name, resources, 0, tax)
         }
 
-        fun createNewProductVersion(formerVersion: ProductDefinition, resources: List<ProductResource>, tax: BigDecimal): ProductDefinition {
+        fun createNewProductVersion(
+                formerVersion: ProductDefinition,
+                resources: List<ProductResource>,
+                tax: BigDecimal
+        ): ProductDefinition {
             return ProductDefinition(formerVersion.name, resources, formerVersion.version.inc(), tax)
         }
     }
