@@ -7,6 +7,7 @@ import pl.altkom.coffee.productcatalog.api.dto.ProductDefinitionDto
 import pl.altkom.coffee.productcatalog.domain.provider.ProductDefinitionProvider
 import pl.altkom.coffee.productcatalog.domain.service.ProductDefinitionService
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 class ProductDefinitionController(
