@@ -16,3 +16,8 @@ security:
       id: product-catalog-rest-api
       jwt:
         key-value: secretKey
+
+management:
+  endpoint:
+    health:
+      show-details: always
