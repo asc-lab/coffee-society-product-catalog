@@ -17,6 +17,10 @@ security:
       jwt:
         key-value: secretKey
 
+axon:
+  axonserver:
+    servers: ${AXON_HOST:localhost}
+
 # workaround: https://stackoverflow.com/questions/46916921/spring-boot-actuator-ldap-health-endpoint-throwing-npe
 management:
   health:
