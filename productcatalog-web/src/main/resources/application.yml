@@ -17,7 +17,11 @@ security:
       jwt:
         key-value: secretKey
 
+# workaround: https://stackoverflow.com/questions/46916921/spring-boot-actuator-ldap-health-endpoint-throwing-npe
 management:
+  health:
+    ldap:
+      enabled: false
   endpoint:
     health:
       show-details: always
