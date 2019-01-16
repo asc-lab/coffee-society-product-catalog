@@ -15,7 +15,7 @@ security:
     resource:
       id: product-catalog-rest-api
       jwt:
-        key-value: secretKey
+        key-value: ${OAUTH_SIGNING_KEY:signingKey}
 
 axon:
   axonserver:
