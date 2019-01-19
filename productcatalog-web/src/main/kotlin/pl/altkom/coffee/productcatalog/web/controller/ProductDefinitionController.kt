@@ -9,7 +9,7 @@ import pl.altkom.coffee.productcatalog.domain.service.ProductDefinitionService
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/product-catalog")
 class ProductDefinitionController(
         private val productDefinitionService: ProductDefinitionService,
         private val productDefinitionProvider: ProductDefinitionProvider) {
